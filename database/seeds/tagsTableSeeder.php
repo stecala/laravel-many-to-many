@@ -17,9 +17,9 @@ class tagsTableSeeder extends Seeder
         $tags = ['salute', 'cultura', 'sport', 'politica', 'cronaca', 'esteri', 'english', 'scuola'];
 
         foreach($tags as $tag){
-            $tag = new Tag();
-            $tag->name = $tag;
-            $tag->save();
+            $newTag = new Tag();
+            $newTag->name = $tag;
+            $newTag->save();
         }
     }
 }

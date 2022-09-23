@@ -9,4 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Tag extends Model
 {
     //
+   /*  public function Tag(){
+        return $this->BelongsToMany('App\Models\Post');
+    } */
 }
