@@ -10,10 +10,11 @@
       <a href="{{ route('admin.posts.create') }}" class="btn btn-primary mb-3">Add</a>
         <table class="table">
             <thead class="thead-dark">
-              <tr>
+              <tr class="text-center">
                 <th scope="col">ID</th>
                 <th scope="col">Author</th>
                 <th scope="col">Date</th>
+                <th scope="col">Tag</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
               </tr>
@@ -24,6 +25,17 @@
                     <td><a href="{{ route('admin.posts.show', $post->id) }}">{{ $post->id }}</a></td>
                     <td>{{ $post->user->name }}</td>
                     <td>{{ $post->post_date }}</td>
+                    <td>
+                      @forelse ($post->tags as $tag)
+                      <span class="badge rounded-pill text-white bg-success p-2">
+                        {{ $tag->name }}
+                          </span>
+                      @empty
+                          <span>
+                              Non sono stati trovati Tag
+                          </span>
+                      @endforelse
+                    </td>
                     <td><a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning">Edit</a></td>
                     <td>
                       <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
