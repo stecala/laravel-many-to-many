@@ -30,7 +30,7 @@
                 </span>
             </div>
             <div class="col-6 d-flex justify-content-end">
-                <a href="" class="btn btn-warning">Edit</a>
+                <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning">Edit</a>
             </div>
         </div>
 

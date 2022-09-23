@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +31,8 @@ class postsController extends Controller
     {
         //
         $post= new Post();
-        return view('admin.posts.create', compact('post'));
+        $tags= Tag::all();
+        return view('admin.posts.create', compact('post','tags'));
     }
 
     /**
@@ -45,7 +47,11 @@ class postsController extends Controller
         $data=$request->all();
         $data['user_id']=Auth::user()->id;
         $newPost= new Post();
-        $newPost->create($data);
+        $newPost->fill($data);
+        if(isset($data['tags'])){
+            $newPost->tags()->attach($data['tags']);
+        }
+        $newPost->save();
 
         return redirect()->route('admin.posts.index', $newPost->id);
     }
@@ -73,7 +79,8 @@ class postsController extends Controller
     {
         //
         $post=Post::findOrFail($id);
-        return view('admin.posts.edit', compact('post'));
+        $tags= Tag::all();
+        return view('admin.posts.edit', compact('post','tags'));
     }
 
     /**
@@ -88,7 +95,14 @@ class postsController extends Controller
         //
         $data=$request->all();
         $newPost= Post::findOrFail($id);
-        $newPost->update($data);
+        $newPost->fill($data);
+        if(isset($data['tags'])){
+            $newPost->tags()->sync($data['tags']);
+        }
+        else{
+            $newPost->tags()->detach();
+        }
+        $newPost->save();
         return redirect()->route('admin.posts.index', $newPost->id);
     }
 
