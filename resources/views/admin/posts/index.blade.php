@@ -29,10 +29,10 @@
                       @forelse ($post->tags as $tag)
                       <span class="badge rounded-pill text-white bg-success p-2">
                         {{ $tag->name }}
-                          </span>
+                      </span>
                       @empty
                           <span>
-                              Non sono stati trovati Tag
+                              Could not find any tag
                           </span>
                       @endforelse
                     </td>

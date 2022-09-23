@@ -9,6 +9,18 @@
             <div class="col-12 text-center img-resize">
                 <img src="{{ $post->img_post }}" alt="img post" >
             </div>
+            <div class="col-12">
+                Tags: 
+                @forelse ($post->tags as $tag)
+                    <span class="badge rounded-pill text-white bg-success p-2 mx-1">
+                         {{  $tag->name }}
+                    </span>
+                @empty
+                    <span>
+                        No tags
+                    </span>
+                @endforelse
+            </div>
             <div class="col-12 post mt-2">
                 {{ $post->description }}
             </div>
