@@ -1,0 +1,41 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.card-container{
+    width: 750px;
+    margin: 0 auto;
+    padding: 15px 10px;
+    border-radius: 10px;
+    background-color: rgb(205, 233, 255);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.493);
+    .row{
+        width: 730px;
+        margin: 0 auto;
+        .col-12{
+            padding: 5px;
+            .author{
+                font-weight: 600;
+                padding-bottom: 10px;
+                border-bottom: 1px solid rgba(128, 128, 128, 0.466);
+            }
+        }
+        .date-cont{
+            font-size: 0.7rem;
+            margin-top: 15px;
+        }
+        
+    }
+}
+.delete-div{
+    background-color: rgb(255, 122, 122);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    text-align: center;
+}
