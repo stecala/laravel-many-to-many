@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth;
 
 class postsController extends Controller
 {
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -48,10 +51,10 @@ class postsController extends Controller
         $data['user_id']=Auth::user()->id;
         $newPost= new Post();
         $newPost->fill($data);
+        $newPost->save();
         if(isset($data['tags'])){
             $newPost->tags()->attach($data['tags']);
         }
-        $newPost->save();
 
         return redirect()->route('admin.posts.index', $newPost->id);
     }
