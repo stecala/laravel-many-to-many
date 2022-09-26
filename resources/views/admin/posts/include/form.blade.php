@@ -21,5 +21,5 @@
 </div>
 <div class="mb-3">
     <label class="form-label" for="post_date">Date post:</label>
-    <input type="text" class="form-control" id="post_date" name="post_date" required value="{{ date("Y-m-d h:i:s") }}" readonly>
+    <input type="text" class="form-control" id="post_date" name="post_date" required value="{{ date("Y-m-d H:i:s") }}" readonly>
 </div>
