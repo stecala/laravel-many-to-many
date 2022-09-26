@@ -7,11 +7,11 @@
                 <h4 class="author">{{ $post->user->name }}</h4>
             </div>
             <div class="col-12 text-center img-resize">
-                @if ($post->img_post )
-                    <img src="{{ asset('storage/' . $post->img_post) }}" alt="img post" >
+                @if (substr( filter_var($post->img_post), 0, 4 ) === "http" )
+                    <img src="{{ $post->img_post }}" alt="img post" class="w-100">
                 @else
-                    <img src="{{ $post->img_post) }}" alt="img post" >
-                @endif
+                    <img src="{{ asset('storage/' . $post->img_post) }}" alt="img post"  class="w-100">
+                @endif 
             </div>
             <div class="col-12">
                 Tags: 
