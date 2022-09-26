@@ -7,7 +7,11 @@
                 <h4 class="author">{{ $post->user->name }}</h4>
             </div>
             <div class="col-12 text-center img-resize">
-                <img src="{{ $post->img_post }}" alt="img post" >
+                @if ($post->img_post )
+                    <img src="{{ asset('storage/' . $post->img_post) }}" alt="img post" >
+                @else
+                    <img src="{{ $post->img_post) }}" alt="img post" >
+                @endif
             </div>
             <div class="col-12">
                 Tags: 

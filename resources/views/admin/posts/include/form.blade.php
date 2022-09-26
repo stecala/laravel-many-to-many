@@ -17,7 +17,7 @@
 </div>
 <div class="mb-3">
   <label class="form-label" for="img_post">Link image for post:</label>
-  <input type="text" class="form-control" id="img_post" name="img_post" required value="{{ old('img_post', $post->img_post) }}">
+  <input type="file" class="form-control" id="img_post" name="img_post" required value="{{ old('img_post', $post->img_post) }}">
 </div>
 <div class="mb-3">
     <label class="form-label" for="post_date">Date post:</label>

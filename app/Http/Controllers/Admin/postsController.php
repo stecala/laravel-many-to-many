@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class postsController extends Controller
 {
@@ -51,6 +52,7 @@ class postsController extends Controller
         $data['user_id']=Auth::user()->id;
         $newPost= new Post();
         $newPost->fill($data);
+        $newPost->img_post=Storage::put('uploads/user', $data['img_post']);
         $newPost->save();
         if(isset($data['tags'])){
             $newPost->tags()->attach($data['tags']);
